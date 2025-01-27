@@ -85,8 +85,7 @@ public class Lection3Controller : MonoBehaviour
     {
         if (intList.Count > 0)
         {
-            intList.Sort();
-            intList.Reverse();
+            intList.Sort((a, b) => b.CompareTo(a));
             Debug.Log("Int list sorted in descending order.");
         }
         else
@@ -193,8 +192,7 @@ public class Lection3Controller : MonoBehaviour
     {
         if (stringList.Count > 0)
         {
-            stringList.Sort();
-            stringList.Reverse();
+            stringList.Sort(StringDescendingComparison);
             Debug.Log("String list sorted in reverse alphabetical order.");
         }
         else
@@ -216,4 +214,10 @@ public class Lection3Controller : MonoBehaviour
             Debug.Log("String list is empty.");
         }
     }
+
+    private int StringDescendingComparison(string a, string b)
+    {
+        return b.CompareTo(a);
+    }
+
 }

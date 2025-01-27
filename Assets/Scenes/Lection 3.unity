@@ -269,8 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fc0586596ce34743ba94077c01cb4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newInt: 15
-  newString: Pupik
+  newInt: 0
+  newString: 
 --- !u!4 &787820732
 Transform:
   m_ObjectHideFlags: 0
