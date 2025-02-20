@@ -26,6 +26,24 @@ public class PlayerController : MonoBehaviour
         RotatePlayer();
     }
 
+    private void LateUpdate()
+    {
+        // Disable X rotation if it is more than 20 and lower than -20 and Disable Z rotation
+        if (transform.localRotation.eulerAngles.x < 20 || transform.localRotation.eulerAngles.x > 340)
+        {
+            transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x, transform.localRotation.eulerAngles.y, 0);
+        }
+        else if (transform.localRotation.eulerAngles.x > 20 && transform.localRotation.eulerAngles.x < 90)
+        {
+            transform.localRotation = Quaternion.Euler(19.9f, transform.localRotation.eulerAngles.y, 0);
+        }
+        else if (transform.localRotation.eulerAngles.x < 340)
+        {
+            transform.localRotation = Quaternion.Euler(-19.9f, transform.localRotation.eulerAngles.y, 0);
+        }
+        transform.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+    }
+
     //Move the player 
     private void MovePlayer()
     {
@@ -34,8 +52,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movementForward = Vector3.Normalize(_bottomTransform.forward) * vertical;
         transform.Translate(movementForward * _speed * Time.deltaTime, Space.World);
         Vector3 movementSides = new Vector3(0, horizontal, 0);
-        transform.Rotate(movementSides * _speed * 10f * Time.deltaTime);
-        transform.localRotation = Quaternion.Euler(0, transform.localRotation.eulerAngles.y, 0);
+        transform.Rotate(movementSides * _speed * 25f * Time.deltaTime);
     }
 
     //Rotate the player and camera
