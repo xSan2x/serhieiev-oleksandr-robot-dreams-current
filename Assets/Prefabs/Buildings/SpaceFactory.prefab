@@ -127,6 +127,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: chimney (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc65147e81debee4d99eed707621cee9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -196,10 +201,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6920690623926577443, guid: fa599c8fc59d7544794f79999880af13,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fa599c8fc59d7544794f79999880af13,
         type: 3}
       propertyPath: m_Name
       value: machine_generator
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fa599c8fc59d7544794f79999880af13,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -295,6 +310,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pipe_rampLarge (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a9f0f8c056bce9e46a4b55077d54bdeb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -388,6 +408,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: machine_barrelLarge (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 320d5e25524cdf04e90131d0cc656cce,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -483,6 +508,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pipe_ringHigh
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 35e3ec1dcdc283f4fa0c94bebd0f508e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -557,6 +587,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: structure_closed (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 998c707bf7918c94fbc70999858bbe7d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -630,6 +665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: platform_high
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 72fc7b166e24b774bbe1c410e7179036,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -725,6 +765,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pipe_rampLarge
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a9f0f8c056bce9e46a4b55077d54bdeb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -798,6 +843,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: machine_barrelLarge
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 320d5e25524cdf04e90131d0cc656cce,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -873,6 +923,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: structure_closed
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 998c707bf7918c94fbc70999858bbe7d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -947,6 +1002,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: structure_closed (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 998c707bf7918c94fbc70999858bbe7d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1020,6 +1080,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: supports_high
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dde6964e6264f6f4ab9718d6751e2cb6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1114,6 +1179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: chimney
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc65147e81debee4d99eed707621cee9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

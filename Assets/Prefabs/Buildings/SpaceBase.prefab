@@ -109,6 +109,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: machine_generatorLarge
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 52bfc233cda12aa4ab60ccf996d9e5f7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -178,10 +183,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3438264724286160937, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2387713629585297344, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 84c901eb9e5ca404ab32799c40d824ea,
         type: 3}
       propertyPath: m_Name
       value: barrels (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598419493678936200, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607266569062314062, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -252,10 +282,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3293336427984311689, guid: 17470271a136f9d4db9a4528e46b126f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 17470271a136f9d4db9a4528e46b126f,
         type: 3}
       propertyPath: m_Name
       value: turret_double
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 17470271a136f9d4db9a4528e46b126f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -331,6 +371,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: platform_low
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 707539fa19cdf2846ae1cf5913079597,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -400,10 +445,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3438264724286160937, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2387713629585297344, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 84c901eb9e5ca404ab32799c40d824ea,
         type: 3}
       propertyPath: m_Name
       value: barrels (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598419493678936200, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607266569062314062, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -474,10 +544,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7631519033783230797, guid: 64910338a10a7524b9073a8cd45fb0ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 64910338a10a7524b9073a8cd45fb0ea,
         type: 3}
       propertyPath: m_Name
       value: hangar_smallB
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 64910338a10a7524b9073a8cd45fb0ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629838243058712215, guid: 64910338a10a7524b9073a8cd45fb0ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -553,6 +638,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: rover
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 73253ac3a9dfbed4dab5e93681fa8ac5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -626,6 +716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: platform_low (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 707539fa19cdf2846ae1cf5913079597,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -706,6 +801,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: platform_straight
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4e7f90005d000284594491ff7af5b1a9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -775,10 +875,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7631519033783230797, guid: 64910338a10a7524b9073a8cd45fb0ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 64910338a10a7524b9073a8cd45fb0ea,
         type: 3}
       propertyPath: m_Name
       value: hangar_smallB (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 64910338a10a7524b9073a8cd45fb0ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629838243058712215, guid: 64910338a10a7524b9073a8cd45fb0ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -854,6 +969,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: hangar_roundA (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a9ef5508df34cd0489a243c48932f75c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -923,10 +1043,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3438264724286160937, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2387713629585297344, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 84c901eb9e5ca404ab32799c40d824ea,
         type: 3}
       propertyPath: m_Name
       value: barrels
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598419493678936200, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607266569062314062, guid: 84c901eb9e5ca404ab32799c40d824ea,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1002,6 +1147,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: hangar_roundA
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a9ef5508df34cd0489a243c48932f75c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1075,6 +1225,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: satelliteDish
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d4772f3b262d98644941d07a2a4a02b0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1155,10 +1310,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7631519033783230797, guid: 4f32b9e256e47ca46a3715b72e679c7a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4f32b9e256e47ca46a3715b72e679c7a,
         type: 3}
       propertyPath: m_Name
       value: hangar_largeB
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4f32b9e256e47ca46a3715b72e679c7a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629838243058712215, guid: 4f32b9e256e47ca46a3715b72e679c7a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
