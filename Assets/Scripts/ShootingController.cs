@@ -9,6 +9,8 @@ public class ShootingController : MonoBehaviour
     [SerializeField] private Transform _shootingPointTransform;
     [SerializeField] private Transform _cameraTransform;
     [SerializeField] private GameObject _explosionPrefab;
+    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private Transform _aimingPoint;
 
     private readonly Vector3[] _points = new Vector3[2];
 
@@ -23,13 +25,8 @@ public class ShootingController : MonoBehaviour
 
     private void ExplosionHandler(bool obj)
     {
-        Physics.Raycast(_cameraTransform.position, _cameraTransform.forward * 1, out RaycastHit hit, 100);
-        if (hit.collider != null)
-        {
-            Debug.Log(hit.collider.name);
-            Debug.Log(hit.point);
-            Debug.DrawRay(_shootingPointTransform.position, hit.point - _shootingPointTransform.position, UnityEngine.Color.green, 1f);
-            Physics.Raycast(_shootingPointTransform.position, hit.point - _shootingPointTransform.position, out RaycastHit hitFromWeapon, 100);
+            Debug.DrawRay(_shootingPointTransform.position, _aimingPoint.position - _shootingPointTransform.position, UnityEngine.Color.green, 1f);
+            Physics.Raycast(_shootingPointTransform.position, _aimingPoint.position - _shootingPointTransform.position, out RaycastHit hitFromWeapon, 100);
             if (hitFromWeapon.collider != null)
             {
                 //Start the explosion
@@ -39,38 +36,27 @@ public class ShootingController : MonoBehaviour
             {
                 Debug.Log("No hit from explosion");
             }
-        }
-        else
-        {
-            Debug.Log("No hit");
-        }
+        
     }
 
     private void FireHandler()
     {
-        //Debug.DrawRay(_cameraTransform.position, _cameraTransform.forward * 100, UnityEngine.Color.red, 1f);
-        //Physics.Raycast(_cameraTransform.position, _cameraTransform.forward*1, out RaycastHit hit, 100);
-        //if (hit.collider != null)
-        //{
-        //    Debug.Log(hit.collider.name);
-        //    Debug.Log(hit.point);
-        //    Debug.DrawRay(_shootingPointTransform.position, hit.point - _shootingPointTransform.position, UnityEngine.Color.green, 1f);
-        //    Physics.Raycast(_shootingPointTransform.position, hit.point - _shootingPointTransform.position, out RaycastHit hitFromWeapon, 100);
-        //    if(hitFromWeapon.collider != null)
-        //    {
-        //        Debug.Log(hitFromWeapon.collider.name);
-        //        Debug.Log(hitFromWeapon.point);
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("No hit from weapon");
-        //    }
-        //}
-        //else
-        //{
-        //    Debug.Log("No hit");
-        //}
-        //Debug.Break();
+        Bullet newBullet = Instantiate(_bulletPrefab, _shootingPointTransform.position, Quaternion.identity).GetComponent<Bullet>();
+        newBullet.SetDirectionPoint(_aimingPoint.position);
+    }
+
+    private void FixedUpdate()
+    {
+        //Move the aiming point to the hit point of camera center
+        Physics.Raycast(_cameraTransform.position, _cameraTransform.forward, out RaycastHit hit, 100);
+        if (hit.collider != null) 
+        {
+            _aimingPoint.position = hit.point;
+        } else
+        {
+            _aimingPoint.position = _cameraTransform.forward * 100;
+        }
+
     }
 
     private void OnDisable()

@@ -32,7 +32,7 @@ public class InputController : MonoBehaviour
     private void OnEnable()
     {
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
 
         _inputActionAsset.Enable();
 

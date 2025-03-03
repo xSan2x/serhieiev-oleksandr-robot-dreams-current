@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour
     }
     private void LateUpdate()
     {
-        _pitch += _lookInput.y * _sensitivity * Time.deltaTime;
+        _pitch -= _lookInput.y * _sensitivity * Time.deltaTime;
 
         //_pitchAnchor.localRotation = Quaternion.Euler(_pitch, 0f, 0f);
         _yawAnchor.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
