@@ -5,62 +5,35 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private Transform _bottomTransform;
-    [SerializeField]
-    private Transform _topTransform;
-    [SerializeField]
-    private Transform _cameraTransform;
-    [SerializeField]
-    private float _speed = 5f;
-    [SerializeField]
-    private float _sensitivity = 10f;
+    [SerializeField] private CharacterController _characterController;
+    [SerializeField] private float _speed;
 
+    private Vector3 _localDirection;
 
-    // Update is called once per frame
-    void Update()
+    private Transform _transform;
+
+    private void Awake()
     {
-        // Move the player
-        MovePlayer();
-        // Rotate the player and camera
-        RotatePlayer();
+        _transform = transform;
     }
 
-    private void LateUpdate()
+    private void Start()
     {
-        // Disable X rotation if it is more than 20 and lower than -20 and Disable Z rotation
-        if (transform.localRotation.eulerAngles.x < 20 || transform.localRotation.eulerAngles.x > 340)
-        {
-            transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x, transform.localRotation.eulerAngles.y, 0);
-        }
-        else if (transform.localRotation.eulerAngles.x > 20 && transform.localRotation.eulerAngles.x < 90)
-        {
-            transform.localRotation = Quaternion.Euler(19.9f, transform.localRotation.eulerAngles.y, 0);
-        }
-        else if (transform.localRotation.eulerAngles.x < 340)
-        {
-            transform.localRotation = Quaternion.Euler(-19.9f, transform.localRotation.eulerAngles.y, 0);
-        }
-        transform.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        InputController.OnMoveInput += MoveHandler;
     }
 
-    //Move the player 
-    private void MovePlayer()
+    private void MoveHandler(Vector2 input)
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        Vector3 movementForward = Vector3.Normalize(_bottomTransform.forward) * vertical;
-        transform.Translate(movementForward * _speed * Time.deltaTime, Space.World);
-        Vector3 movementSides = new Vector3(0, horizontal, 0);
-        transform.Rotate(movementSides * _speed * 25f * Time.deltaTime);
+        _localDirection = new Vector3(input.x, 0, input.y);
     }
 
-    //Rotate the player and camera
-    private void RotatePlayer()
+    private void FixedUpdate()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
-        Vector3 rotation = new Vector3(0, mouseX, 0) * _sensitivity;
-        _topTransform.Rotate(rotation);
+        Vector3 forward = _transform.forward;
+        Vector3 right = _transform.right;
+
+        Vector3 direction = forward * _localDirection.z + right * _localDirection.x;
+
+        _characterController.SimpleMove(direction * _speed);
     }
 }
