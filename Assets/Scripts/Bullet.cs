@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour
 {
@@ -33,14 +34,33 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //Ricochet the bullet
-        Debug.Log("Bullet velocity before = "+_rigidbody.velocity);
         Vector3 copyVelocity = _rigidbody.velocity;
         _rigidbody.velocity = Vector3.zero;
         transform.forward = Vector3.Reflect(transform.forward, collision.contacts[0].normal);
-        
+
         _rigidbody.velocity = copyVelocity / 2;
-        Debug.Log("Bullet velocity after = " + _rigidbody.velocity);
+        if (collision.transform.tag == "Body")
+        {
+            HitController(false, collision);
+        }
+        else if (collision.transform.tag == "Head")
+        {
+            HitController(true, collision);
+        }
     }
+
+    private void HitController(bool HS, Collision collision)
+    {
+        if (HS)
+        {
+            collision.transform.GetComponentInParent<Dummy>().PlayHeadshotSound();
+            collision.transform.GetComponentInParent<Dummy>().TakeDamage(20);
+        } else
+        {
+            collision.transform.GetComponentInParent<Dummy>().TakeDamage(10);
+        }
+    }
+
 
     private IEnumerator DestroyBullet(float delay)
     {

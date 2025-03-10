@@ -10,7 +10,9 @@ public class ShootingController : MonoBehaviour
     [SerializeField] private Transform _cameraTransform;
     [SerializeField] private GameObject _explosionPrefab;
     [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private GameObject _splashPrefab;
     [SerializeField] private Transform _aimingPoint;
+    
 
     private readonly Vector3[] _points = new Vector3[2];
 
@@ -43,6 +45,7 @@ public class ShootingController : MonoBehaviour
     {
         Bullet newBullet = Instantiate(_bulletPrefab, _shootingPointTransform.position, Quaternion.identity).GetComponent<Bullet>();
         newBullet.SetDirectionPoint(_aimingPoint.position);
+        Instantiate(_splashPrefab, _shootingPointTransform.position, Quaternion.identity);
     }
 
     private void FixedUpdate()
@@ -64,5 +67,8 @@ public class ShootingController : MonoBehaviour
         InputController.OnPrimaryInput -= FireHandler;
         InputController.OnSecondaryInput -= ExplosionHandler;
     }
+
+    
+
 }
 
