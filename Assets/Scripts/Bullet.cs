@@ -57,15 +57,19 @@ public class Bullet : MonoBehaviour
 
     private void HitController(bool HS, Collision collision)
     {
-        Dummy dummy = collision.transform.GetComponentInParent<Dummy>();
-        if (HS)
+        if(collision.transform.parent.TryGetComponent<Dummy>(out Dummy dummy))
         {
-            dummy.PlayHeadshotSound();
-            dummy.TakeDamage(20);
-        } else
-        {
-            dummy.TakeDamage(10);
+            if (HS)
+            {
+                dummy.PlayHeadshotSound();
+                dummy.TakeDamage(20);
+            }
+            else
+            {
+                dummy.TakeDamage(10);
+            }
         }
+        
     }
 
 
