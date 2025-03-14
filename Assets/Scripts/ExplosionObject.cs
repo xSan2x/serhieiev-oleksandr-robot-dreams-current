@@ -4,31 +4,39 @@ using UnityEngine;
 
 public class ExplosionObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float _duration = 1f; 
+    [SerializeField] float _currentState = 0f; 
+    [SerializeField] float _radius = 5f;
+    [SerializeField] float _force = 2500f;
+    
+    private void FixedUpdate()
     {
-        //Startnig the explosion coroutine
-        StartCoroutine(Explosion(transform.position, 5, 2500, 1));
-    }
-
-    //explosion coroutine
-    private IEnumerator Explosion(Vector3 position, float radius, float force, float duration)
-    {
-        //Get all the colliders in the radius
-        Collider[] colliders = Physics.OverlapSphere(position, radius);
-        foreach (var collider in colliders)
+        //Increase the current state
+        _currentState += Time.fixedDeltaTime;
+        if (_currentState > _duration)
         {
-            //Get the rigidbody of the collider
-            Rigidbody rb = collider.GetComponent<Rigidbody>();
-            if (rb != null)
+            //Destroy the gameobject
+            Destroy(gameObject);
+        }
+        else
+        {
+            float scaleKf = _currentState / _duration;
+            float scale = scaleKf * _radius;
+            transform.localScale = new Vector3(scale, scale, scale);
+            //Get all the colliders in the radius
+            Collider[] colliders = Physics.OverlapSphere(transform.position, scale);
+            foreach (var collider in colliders)
             {
-                //Add the explosion force
-                rb.AddExplosionForce(force, position, radius);
+                //Get the rigidbody of the collider
+                Rigidbody rb = collider.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    //Add the explosion force by the scale
+                    rb.AddExplosionForce(_force*(1-scaleKf), transform.position, scale);
+                }
             }
         }
-        //Wait for the duration
-        yield return new WaitForSeconds(duration);
-        //Destroy the gameobject
-        Destroy(gameObject);
+
     }
+    
 }
