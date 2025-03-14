@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class Dummy : MonoBehaviour
     [SerializeField] int _currentHP = 100;
     [SerializeField] Image _healthBar;
     [SerializeField] private RectTransform _hitImage;
+    [SerializeField] private GameObject _dummyPrefab;
 
     private Coroutine _coroutine;
 
@@ -18,9 +20,23 @@ public class Dummy : MonoBehaviour
         _healthBar.fillAmount = (float)_currentHP / _maxHP;
         if (_currentHP <= 0)
         {
-            Destroy(gameObject);
+            //Destroy the dummy with coroutine
+            StartCoroutine(DestroyDummy());
+
         }
         ShowHit();
+    }
+
+    private IEnumerator DestroyDummy()
+    {
+        //Play the death animation (not have)
+        yield return new WaitForSeconds(0.5f);
+        Dummy newDummy = Instantiate(_dummyPrefab, transform.position, transform.rotation).GetComponent<Dummy>();
+        newDummy._currentHP = newDummy._maxHP;
+        newDummy._healthBar.fillAmount = 1;
+        newDummy._hitImage = this._hitImage;
+        yield return new WaitForSeconds(0.01f);
+        Destroy(gameObject);
     }
 
     public void PlayHeadshotSound()

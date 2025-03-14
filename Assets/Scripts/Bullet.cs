@@ -9,6 +9,9 @@ public class Bullet : MonoBehaviour
     [SerializeField] float _speed = 10f;
     [SerializeField] float _destructionDelay = 0.5f;
 
+    bool _isHeadshot = false;
+    bool _isHit = false;
+
     Rigidbody _rigidbody;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +30,7 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Move the bullet forward
+        
         
     }
 
@@ -42,22 +45,26 @@ public class Bullet : MonoBehaviour
         if (collision.transform.tag == "Body")
         {
             HitController(false, collision);
+            _isHit = true;
         }
         else if (collision.transform.tag == "Head")
         {
             HitController(true, collision);
-        }
+            _isHit = true;
+            _isHeadshot = true;
+        } 
     }
 
     private void HitController(bool HS, Collision collision)
     {
+        Dummy dummy = collision.transform.GetComponentInParent<Dummy>();
         if (HS)
         {
-            collision.transform.GetComponentInParent<Dummy>().PlayHeadshotSound();
-            collision.transform.GetComponentInParent<Dummy>().TakeDamage(20);
+            dummy.PlayHeadshotSound();
+            dummy.TakeDamage(20);
         } else
         {
-            collision.transform.GetComponentInParent<Dummy>().TakeDamage(10);
+            dummy.TakeDamage(10);
         }
     }
 
@@ -65,6 +72,7 @@ public class Bullet : MonoBehaviour
     private IEnumerator DestroyBullet(float delay)
     {
         yield return new WaitForSeconds(delay);
+        UIController._instance.UpdateStats(_isHit, _isHeadshot);
         Destroy(gameObject);
     }
 }

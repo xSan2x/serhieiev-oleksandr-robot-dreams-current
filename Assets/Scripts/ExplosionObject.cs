@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExplosionObject : MonoBehaviour
 {
     [SerializeField] float _duration = 1f; 
-    [SerializeField] float _currentState = 0f; 
+    float _currentState = 0f; 
     [SerializeField] float _radius = 5f;
     [SerializeField] float _force = 2500f;
     

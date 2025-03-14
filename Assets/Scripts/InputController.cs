@@ -11,6 +11,8 @@ public class InputController : MonoBehaviour
     public static event Action<Vector2> OnLookInput;
     public static event Action OnPrimaryInput;
     public static event Action<bool> OnSecondaryInput;
+    public static event Action OnStatsInput;
+    public static event Action OnStatsCanceledInput;
 
     [SerializeField] private CursorLockMode _enabledCursorMode;
     [SerializeField] private CursorLockMode _disabledCursorMode;
@@ -21,11 +23,13 @@ public class InputController : MonoBehaviour
     [SerializeField] private string _lookFPSAroundName;
     [SerializeField] private string _primaryFireName;
     [SerializeField] private string _secondaryFireName;
+    [SerializeField] private string _statsName;
 
     private InputAction _moveFPSAction;
     private InputAction _lookAroundFPSAction;
     private InputAction _primaryFireAction;
     private InputAction _secondaryFireAction;
+    private InputAction _statsAction;
 
     private InputActionMap _actionFPSMap;
 
@@ -43,6 +47,7 @@ public class InputController : MonoBehaviour
         //_pointerPositionAction = actionMap[_pointerPositionName];
         _primaryFireAction = _actionFPSMap[_primaryFireName];
         _secondaryFireAction = _actionFPSMap[_secondaryFireName];
+        _statsAction = _actionFPSMap[_statsName];
 
         _moveFPSAction.performed += MovePerformedHandler;
         _moveFPSAction.canceled += MoveCanceledHandler;
@@ -54,6 +59,19 @@ public class InputController : MonoBehaviour
 
         _secondaryFireAction.performed += SecondaryFirePerformedHandler;
         _secondaryFireAction.canceled += SecondaryFireCanceledHandler;
+
+        _statsAction.performed += StatsPerformedHandler;
+        _statsAction.canceled += StatsCanceledHandler;
+    }
+
+    private void StatsCanceledHandler(InputAction.CallbackContext context)
+    {
+        OnStatsInput?.Invoke();
+    }
+
+    private void StatsPerformedHandler(InputAction.CallbackContext context)
+    {
+        OnStatsCanceledInput?.Invoke();
     }
 
     private void OnDisable()
@@ -76,10 +94,15 @@ public class InputController : MonoBehaviour
         _secondaryFireAction.performed -= SecondaryFirePerformedHandler;
         _secondaryFireAction.canceled -= SecondaryFireCanceledHandler;
 
+        _statsAction.performed -= StatsPerformedHandler;
+        _statsAction.canceled -= StatsCanceledHandler;
+
         OnMoveInput = null;
         OnLookInput = null;
         OnPrimaryInput = null;
         OnSecondaryInput = null;
+        OnStatsInput = null;
+        OnStatsCanceledInput = null;
     }
 
     private void SecondaryFireCanceledHandler(InputAction.CallbackContext context)
