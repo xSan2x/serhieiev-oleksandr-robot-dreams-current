@@ -52,8 +52,11 @@ MonoBehaviour:
   _maxHP: 100
   _currentHP: 100
   _healthBar: {fileID: 1709211456409712217}
+  _healthBarBG: {fileID: 358986016496676525}
   _hitImage: {fileID: 0}
   _dummyPrefab: {fileID: 19130280432226125}
+  _headCollider: {fileID: 1273352134023679399}
+  _bodyCollider: {fileID: 4894808694020710811}
 --- !u!82 &6408026726180419253
 AudioSource:
   m_ObjectHideFlags: 0

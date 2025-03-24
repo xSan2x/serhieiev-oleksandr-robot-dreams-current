@@ -38,38 +38,41 @@ public class Bullet : MonoBehaviour
     {
         //Ricochet the bullet
         Vector3 copyVelocity = _rigidbody.velocity;
-        _rigidbody.velocity = Vector3.zero;
         transform.forward = Vector3.Reflect(transform.forward, collision.contacts[0].normal);
 
         _rigidbody.velocity = copyVelocity / 2;
-        if (collision.transform.tag == "Body")
+        if (collision.transform.parent != null)
         {
-            HitController(false, collision);
-            _isHit = true;
+            if (collision.transform.parent.TryGetComponent<Dummy>(out Dummy dummy))
+            {
+                HitController(collision);
+                Destroy(gameObject);
+            }
+            else
+            {
+
+            }
         }
-        else if (collision.transform.tag == "Head")
-        {
-            HitController(true, collision);
-            _isHit = true;
-            _isHeadshot = true;
-        } 
     }
 
-    private void HitController(bool HS, Collision collision)
+    private void HitController(Collision collision)
     {
         if(collision.transform.parent.TryGetComponent<Dummy>(out Dummy dummy))
         {
-            if (HS)
+            if (dummy.IsHeadshot(collision.collider))
             {
                 dummy.PlayHeadshotSound();
                 dummy.TakeDamage(20);
+                _isHit = true;
+                _isHeadshot = true;
             }
             else
             {
                 dummy.TakeDamage(10);
+                _isHit = true;
             }
         }
-        
+        UIController._instance.UpdateStats(_isHit, _isHeadshot);
     }
 
 

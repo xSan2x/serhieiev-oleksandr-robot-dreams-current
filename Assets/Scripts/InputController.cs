@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +11,7 @@ public class InputController : MonoBehaviour
     public static event Action<bool> OnSecondaryInput;
     public static event Action OnStatsInput;
     public static event Action OnStatsCanceledInput;
+    public static event Action OnPauseInput;
 
     [SerializeField] private CursorLockMode _enabledCursorMode;
     [SerializeField] private CursorLockMode _disabledCursorMode;
@@ -24,12 +23,14 @@ public class InputController : MonoBehaviour
     [SerializeField] private string _primaryFireName;
     [SerializeField] private string _secondaryFireName;
     [SerializeField] private string _statsName;
+    [SerializeField] private string _pauseName;
 
     private InputAction _moveFPSAction;
     private InputAction _lookAroundFPSAction;
     private InputAction _primaryFireAction;
     private InputAction _secondaryFireAction;
     private InputAction _statsAction;
+    private InputAction _pauseAction;
 
     private InputActionMap _actionFPSMap;
 
@@ -48,6 +49,7 @@ public class InputController : MonoBehaviour
         _primaryFireAction = _actionFPSMap[_primaryFireName];
         _secondaryFireAction = _actionFPSMap[_secondaryFireName];
         _statsAction = _actionFPSMap[_statsName];
+        _pauseAction = _actionFPSMap[_pauseName];
 
         _moveFPSAction.performed += MovePerformedHandler;
         _moveFPSAction.canceled += MoveCanceledHandler;
@@ -62,6 +64,13 @@ public class InputController : MonoBehaviour
 
         _statsAction.performed += StatsPerformedHandler;
         _statsAction.canceled += StatsCanceledHandler;
+
+        _pauseAction.performed += PausePerformedHandler;
+    }
+
+    private void PausePerformedHandler(InputAction.CallbackContext context)
+    {
+        OnPauseInput?.Invoke();
     }
 
     private void StatsCanceledHandler(InputAction.CallbackContext context)
@@ -103,6 +112,7 @@ public class InputController : MonoBehaviour
         OnSecondaryInput = null;
         OnStatsInput = null;
         OnStatsCanceledInput = null;
+        OnPauseInput = null;
     }
 
     private void SecondaryFireCanceledHandler(InputAction.CallbackContext context)
