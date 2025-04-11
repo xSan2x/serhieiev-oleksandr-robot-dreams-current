@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TFTools.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class Dummy : MonoBehaviour
     [SerializeField] int _maxHP = 100;
     [SerializeField] int _currentHP = 100;
     [SerializeField] Image _healthBar;
-    [SerializeField] Image _healthBarBG;
+    [SerializeField] RectTransform _healthBarBG;
     [SerializeField] private RectTransform _hitImage;
     [SerializeField] private GameObject _dummyPrefab;
 
@@ -32,9 +33,8 @@ public class Dummy : MonoBehaviour
     }
     private void Update()
     {
-        //HPBar follow the camera
-        _healthBar.transform.LookAt(Camera.main.transform);
-        _healthBarBG.transform.LookAt(Camera.main.transform);
+        //_healthBarBG.LookAt(Camera.main.transform,Vector3.up);
+        _healthBarBG.rotation = Quaternion.LookRotation(_healthBarBG.position - Camera.main.transform.position);
     }
     private IEnumerator DestroyDummy()
     {

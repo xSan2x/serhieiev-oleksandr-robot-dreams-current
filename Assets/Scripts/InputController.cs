@@ -12,6 +12,8 @@ public class InputController : MonoBehaviour
     public static event Action OnStatsInput;
     public static event Action OnStatsCanceledInput;
     public static event Action OnPauseInput;
+    public static event Action OnInventoryInput;
+    public static event Action OnInteractInput;
 
     [SerializeField] private CursorLockMode _enabledCursorMode;
     [SerializeField] private CursorLockMode _disabledCursorMode;
@@ -24,6 +26,8 @@ public class InputController : MonoBehaviour
     [SerializeField] private string _secondaryFireName;
     [SerializeField] private string _statsName;
     [SerializeField] private string _pauseName;
+    [SerializeField] private string _inventoryName;
+    [SerializeField] private string _interactName;
 
     private InputAction _moveFPSAction;
     private InputAction _lookAroundFPSAction;
@@ -31,6 +35,8 @@ public class InputController : MonoBehaviour
     private InputAction _secondaryFireAction;
     private InputAction _statsAction;
     private InputAction _pauseAction;
+    private InputAction _inventoryAction;
+    private InputAction _interactAction;
 
     private InputActionMap _actionFPSMap;
 
@@ -50,6 +56,8 @@ public class InputController : MonoBehaviour
         _secondaryFireAction = _actionFPSMap[_secondaryFireName];
         _statsAction = _actionFPSMap[_statsName];
         _pauseAction = _actionFPSMap[_pauseName];
+        _inventoryAction = _actionFPSMap[_inventoryName];
+        _interactAction = _actionFPSMap[_interactName];
 
         _moveFPSAction.performed += MovePerformedHandler;
         _moveFPSAction.canceled += MoveCanceledHandler;
@@ -66,6 +74,18 @@ public class InputController : MonoBehaviour
         _statsAction.canceled += StatsCanceledHandler;
 
         _pauseAction.performed += PausePerformedHandler;
+        _inventoryAction.performed += InventoryPerformedHandler;
+        _interactAction.performed += InteractPerformedHandler;
+    }
+
+    private void InteractPerformedHandler(InputAction.CallbackContext context)
+    {
+        OnInteractInput?.Invoke();
+    }
+
+    private void InventoryPerformedHandler(InputAction.CallbackContext context)
+    {
+        OnInventoryInput?.Invoke();
     }
 
     private void PausePerformedHandler(InputAction.CallbackContext context)

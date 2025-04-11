@@ -36,4 +36,19 @@ public class PlayerController : MonoBehaviour
 
         _characterController.SimpleMove(direction * _speed);
     }
+
+    public Vector3 GetPlayerPosition(int variants) //0 - pure pos, 1- pos + forward
+    {
+        switch(variants)
+        {
+            case 0:
+                return _transform.position;
+            case 1:
+                return _transform.position + _transform.forward * 2;
+            default:
+                Debug.LogError("Invalid variant for GetPlayerPosition");
+                return _transform.position;
+        }
+        
+    }
 }

@@ -10,12 +10,16 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private GameObject _statsPanel;
     [SerializeField] private GameObject _pausePanel;
+    [SerializeField] private GameObject _inventoryPanel;
     [SerializeField] private TMPro.TextMeshProUGUI _accuracyText;
     [SerializeField] private TMPro.TextMeshProUGUI _headshotsText;
     private float _shotsMade = 0;
     private float _shotsHit = 0;
     private float _headshots = 0;
     public static UIController _instance;
+
+    public bool _isPaused = false;
+    public bool _isInInventory = false;
 
     private void Awake()
     {
@@ -41,6 +45,24 @@ public class UIController : MonoBehaviour
         InputController.OnStatsInput += StatsInputHandler;
         InputController.OnStatsCanceledInput += StatsCanceledInputHandler;
         InputController.OnPauseInput += PauseInputHandler;
+        InputController.OnInventoryInput += InventoryInputHandler;
+    }
+
+    private void InventoryInputHandler()
+    {
+        _inventoryPanel.SetActive(!_inventoryPanel.activeSelf);
+        if (_inventoryPanel.activeSelf)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            _isInInventory = true;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            _isInInventory = false;
+        }
     }
 
     private void PauseInputHandler()
@@ -50,12 +72,14 @@ public class UIController : MonoBehaviour
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            _isPaused = true;
             Time.timeScale = 0;
         }
         else
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            _isPaused = false;
             Time.timeScale = 1;
         }
         
@@ -84,9 +108,7 @@ public class UIController : MonoBehaviour
         }
         _accuracyText.text = "Accuracy: " + (_shotsHit / _shotsMade * 100).ToString("F2") + "% "+"("+_shotsHit+" / "+_shotsMade+")";
         _headshotsText.text = "Headshots: " + (_headshots / _shotsHit * 100).ToString("F2") + "%"+ "(" + _headshots + " / " + _shotsHit + ")";
-        Debug.Log("Shotsmade ="+_shotsMade);
-        Debug.Log("Shotshit ="+_shotsHit);
-        Debug.Log(_shotsHit / _shotsMade);
+        
     }
 
     private void OnDestroy()
@@ -94,6 +116,7 @@ public class UIController : MonoBehaviour
         InputController.OnStatsInput -= StatsInputHandler;
         InputController.OnStatsCanceledInput -= StatsCanceledInputHandler;
         InputController.OnPauseInput -= PauseInputHandler;
+        InputController.OnInventoryInput -= InventoryInputHandler;
     }
     public void ExitToMenu()
     {
