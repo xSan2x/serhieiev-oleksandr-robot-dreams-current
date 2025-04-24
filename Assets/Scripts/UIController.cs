@@ -50,6 +50,14 @@ public class UIController : MonoBehaviour
 
     private void InventoryInputHandler()
     {
+        if(_isPaused)
+        {
+            return;
+        }
+        if ((_isInInventory && !_inventoryPanel.activeSelf) || (!_isInInventory && _inventoryPanel.activeSelf))
+        {
+            return;
+        }
         _inventoryPanel.SetActive(!_inventoryPanel.activeSelf);
         if (_inventoryPanel.activeSelf)
         {
@@ -67,6 +75,15 @@ public class UIController : MonoBehaviour
 
     private void PauseInputHandler()
     {
+        if (_isInInventory)
+        {
+            _inventoryPanel.SetActive(false);
+            Inventory._instance.CancelExchange();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            _isInInventory = false;
+            return;
+        }
         _pausePanel.SetActive(!_pausePanel.activeSelf);
         if(_pausePanel.activeSelf)
         {

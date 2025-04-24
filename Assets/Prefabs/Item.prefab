@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6289429751574294362}
   - component: {fileID: 571438358972903696}
   - component: {fileID: 9124151460754849503}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,9 +146,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab74e425bfdb4f4f9f9488096ad768b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: SimpleItem
-  itemDescription: SimpleItem for Simple tasks with simple price
-  itemID: 0
-  itemIcon: {fileID: -954431779, guid: a546486b394bb364f99992c55e0806ce, type: 3}
-  itemQuantity: 2
-  itemPrefab: {fileID: 5549507983102058914}
+  _itemName: 
+  _itemDescription: 
+  _itemID: 0
+  _itemIcon: {fileID: 0}
+  _itemQuantity: 0
+  _itemCost: 0
+  _itemPrefab: {fileID: 0}
+  _isMerchantItem: 0
